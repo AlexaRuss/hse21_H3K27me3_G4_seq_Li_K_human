@@ -1,7 +1,7 @@
 library(ggplot2)
 library(dplyr)
-library(tidyr)   # replace_na
-library(tibble)  # column_to_rownames
+library(tidyr)   
+library(tibble)  
 
 ###
 
@@ -9,7 +9,6 @@ library(tibble)  # column_to_rownames
 #NAME <- 'H3K27me3_H9.ENCFF680AKW.hg38'
 #NAME <- 'H3K27me3_H9.ENCFF680AKW.hg19'
 #NAME <- 'H3K27me3_H9.ENCFF851PCG.hg38'
-OUT_DIR <- 'Results/'
 
 ###
 
@@ -42,7 +41,6 @@ ggplot(bed_df) +
   geom_histogram() +
   ggtitle(NAME, subtitle = sprintf('Number of peaks = %s', nrow(bed_df))) +
   theme_bw()
-ggsave(paste0('len_hist.', NAME, '.filtered.pdf'), path = OUT_DIR)
 
 bed_df %>%
   select(-len) %>%
